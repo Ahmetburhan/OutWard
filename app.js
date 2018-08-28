@@ -7,12 +7,13 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var tests = require('./routes/tests');
-var mocks = require('./routes/mocks');
+
 
 var hbs = require('express-handlebars');
 
 var app = express();
+app.use(express.static('public'));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,9 +28,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api/v1/users', users);
-app.use('/api/tests', tests);
-app.use('/setup-mock-data', mocks);
 
 
 

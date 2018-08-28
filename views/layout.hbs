@@ -6,7 +6,7 @@
 
   <h1>User request Counter</h1>
 
-  <p id="demo">Request Count will be changed.</p>
+  <p id="demo">XMLHttpRequest will be made here.</p>
   <p id="counter">{{counter}}</p>
 
 
@@ -16,6 +16,11 @@
 
 </body>
   <script>
+    let count = 1
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.send(document.getElementById("counter").innerHTML = count++);
+    }
   </script>
 
 </html>

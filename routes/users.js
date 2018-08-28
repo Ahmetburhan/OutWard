@@ -7,7 +7,6 @@ const db = require('../utils/db');
 
 
 
-/* GET users listing. */
 router.get('/', function (req, res, next) {
   let counter = 1
   let loadDoc = function () {
@@ -26,14 +25,6 @@ router.get('/', function (req, res, next) {
     });
 });
 
-/* INSERT mocked user data */
-router.get('/setup-mock-data', function (req, res, next) {
-  users.insertMockData().then((result) => {
-    res.render('status', { status: `${result.message}\nUsers in database: ${result.count}` });
-  })
-    .catch((err) => {
-      res.render('error', { message: "Cannot insert mock data", error: err });
-    });
-});
+
 
 module.exports = router;
